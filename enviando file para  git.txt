@@ -1,0 +1,105 @@
+obs.:
+faz-se necessário instalar o git primeiro:
+link : https://git-scm.com/install/windows
+
+J:\Meu Drive\Particular\Cursos\IA\Agente N8n>git init
+Initialized empty Git repository in J:/Meu Drive/Particular/Cursos/IA/Agente N8n/.git/
+
+J:\Meu Drive\Particular\Cursos\IA\Agente N8n>git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        agente de envio de e-mail whatsapp.json
+        agente para cadastro via whatsapp.json
+        "\342\226\266\357\270\217 dev_AI - n8n.pdf"
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+J:\Meu Drive\Particular\Cursos\IA\Agente N8n>git add .
+warning: in the working copy of 'agente de envio de e-mail whatsapp.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'agente para cadastro via whatsapp.json', LF will be replaced by CRLF the next time Git touches it
+
+J:\Meu Drive\Particular\Cursos\IA\Agente N8n>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   agente de envio de e-mail whatsapp.json
+        new file:   agente para cadastro via whatsapp.json
+        new file:   "\342\226\266\357\270\217 dev_AI - n8n.pdf"
+
+
+J:\Meu Drive\Particular\Cursos\IA\Agente N8n>git commit -ma "Commit dos Agendete IA"
+error: pathspec 'Commit dos Agendete IA' did not match any file(s) known to git
+
+J:\Meu Drive\Particular\Cursos\IA\Agente N8n>git commit -m "Commit dos Agendete IA"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'SUGU@DESKDEVGUTO.(none)')
+
+J:\Meu Drive\Particular\Cursos\IA\Agente N8n>git config --global user.name "AntonioAlvesSU"
+
+J:\Meu Drive\Particular\Cursos\IA\Agente N8n>git config --global user.email "aalves_su@hotmail.com"
+
+J:\Meu Drive\Particular\Cursos\IA\Agente N8n>git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=schannel
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+user.name=AntonioAlvesSU
+user.email=aalves_su@hotmail.com
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+
+J:\Meu Drive\Particular\Cursos\IA\Agente N8n>git commit -m "Commit dos Agendete IA"
+[master (root-commit) 591b327] Commit dos Agendete IA
+ 3 files changed, 749 insertions(+)
+ create mode 100644 agente de envio de e-mail whatsapp.json
+ create mode 100644 agente para cadastro via whatsapp.json
+ create mode 100644 "\342\226\266\357\270\217 dev_AI - n8n.pdf"
+
+J:\Meu Drive\Particular\Cursos\IA\Agente N8n>git branch -M main
+
+J:\Meu Drive\Particular\Cursos\IA\Agente N8n>git remote add origin https://github.com/AntonioAlvesSU/Agente-de-IA.git
+
+J:\Meu Drive\Particular\Cursos\IA\Agente N8n>git push -u origin main
+info: please complete authentication in your browser...
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 59.86 KiB | 2.99 MiB/s, done.
+Total 5 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/AntonioAlvesSU/Agente-de-IA.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+J:\Meu Drive\Particular\Cursos\IA\Agente N8n>
