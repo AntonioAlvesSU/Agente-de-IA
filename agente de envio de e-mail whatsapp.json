@@ -1,0 +1,170 @@
+{
+  "name": "Enviar_email",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -864,
+        -336
+      ],
+      "id": "53eed325-1038-4428-9c84-4f27e040e515",
+      "name": "When chat message received",
+      "webhookId": "1a88006c-38ce-4351-a2e7-9dbf6b2f01fb"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a helpful assistant\n\nSempre resposta meus emails Assinando meu Nome que é Antonio Alves"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -592,
+        -336
+      ],
+      "id": "0fc7e3cc-9007-4435-93d2-2817510118b6",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -752,
+        -96
+      ],
+      "id": "d97033cc-6ec9-444c-a0b2-efbede927d06",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "hIJqfiDpkCPNzfYs",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -576,
+        -144
+      ],
+      "id": "24043ed8-790f-4e9a-b188-929e973265f0",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{$fromAI(\"emailRecipient\")}}",
+        "subject": "={{ $fromAI(\"Subject\") }}",
+        "message": "={{ $fromAI(\"emailBody\") }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.2,
+      "position": [
+        -384,
+        -112
+      ],
+      "id": "69b268d2-5881-45c2-ae7c-23dc57a94ab1",
+      "name": "Send a message in Gmail",
+      "webhookId": "e4b1b036-e6f5-42f5-86e3-750e390b2cd5",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "jr95BT1GzAD6HXwJ",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Envio de e-mail a partir de um bate papo\n",
+        "height": 560,
+        "width": 880
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1056,
+        -400
+      ],
+      "id": "d88d3d7b-0e4c-4abd-9ac2-387285396653",
+      "name": "Sticky Note"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message in Gmail": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "0509aa61-227b-4254-b199-c5e83024fd17",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2bd195a6ecdc9b8cd66f4ee390e1781a378019ee5f79216e6b408ece61314bcd"
+  },
+  "id": "dKyOZhAyRp4kZual",
+  "tags": []
+}
